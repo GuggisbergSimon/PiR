@@ -94,7 +94,7 @@ private function unsetData($req){
 public function getAllPrinters(){
 
     // TODO: avoir la requête sql
-    $query = "SELECT * FROM ";
+    $query = "SELECT * FROM t_printer ";
     $req = $this->queryPrepareExecute($query, null );
     
     $result = $this->formatData($req);
@@ -111,7 +111,7 @@ public function getAllPrinters(){
  */
 public function getOnePrinter($id){
 
-    $query = "SELECT * FROM  where id = ".$id." ";
+    $query = "SELECT * FROM t_printer where idPrinter = ".$id." ";
     
     $req = $this->queryPrepareExecute($query, null );
     $result = $this->formatData($req);

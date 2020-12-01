@@ -7,9 +7,9 @@
      */
 $MM_CONFIG = array(
 "database" => array(
-    "dbname" => "",
-    "username" => "",
-    "password" => "",
+    "dbname" => "PiR",
+    "username" => "root",
+    "password" => "root",
     "host" => "localhost",
     "port" => "3306",
     "charset" => "utf8"
