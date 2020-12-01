@@ -18,7 +18,7 @@
 <?php
 include 'database.php';
 $database = new Database();
-
+$printers=$database->getAllPrinters();
 echo'<main>
     <h1>Les meilleures ventes : (5 meilleures ventes sur 3 ans)</h1><br>
     <h1>10 meillleures imprimantes selon leurs vitesse d\'impression :</h1><br>
@@ -41,17 +41,20 @@ echo'<main>
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>'.$database->getOnePrinter(1)[0]['priBrand'].'</td>
-                <td>'.$database->getOnePrinter(1)[0]['priModel'].'</td>
-                <td>'.$database->getOnePrinter(1)[0]['priTechnology'].'</td>
-                <td>'.$database->getOnePrinter(1)[0]['priSpeed'].' PPM</td>
-                <td>'.$database->getOnePrinter(1)[0]['priCapacity'].' feuilles</td>
-                <td>'.$database->getOnePrinter(1)[0]['priWeight'].'KG</td>
-                <td>'.$database->getOnePrinter(1)[0]['priResolution'].'PPI</td>
-                <td>'.$database->getOnePrinter(1)[0]['priHeight'].' x '.$database->getOnePrinter(1)[0]['priWidth'].' x '.$database->getOnePrinter(1)[0]['priDepth'].'</td>
-                <td>'.$database->getOnePrinter(1)[0]['priPrice'].'chf</td>
-            </tr>
+            ';
+            foreach ($printers as $printer){
+                echo ' <tr>
+                <td>'.$printer['priBrand'].'</td>
+                <td>'.$printer['priModel'].'</td>
+                <td>'.$printer['priTechnology'].'</td>
+                <td>'.$printer['priSpeed'].' PPM</td>
+                <td>'.$printer['priCapacity'].' feuilles</td>
+                <td>'.$printer['priWeight'].'KG</td>
+                <td>'.$printer['priResolution'].'PPI</td>
+                <td>'.$printer['priHeight'].' x '.$printer['priWidth'].' x '.$printer['priDepth'].'</td>
+                <td>'.$printer['priPrice'].'chf</td>
+            </tr>';}'
+           
         </tbody>
     </table>
 </main>';
