@@ -124,14 +124,14 @@ public function getBestSales(){
 }
 
 public function getBestSpeeds(){
-    $query = "SELECT * FROM t_printer GROUP BY priSpeed DESC LIMIT 10";
+    $query = "SELECT * FROM t_printer ORDER BY t_printer.priSpeed DESC LIMIT 10";
     $req = $this->queryPrepareExecute($query, null );
     $result = $this->formatData($req);
     return $result;
 }
 
 public function getBestResolution(){
-    $query = "SELECT * FROM t_printer GROUP BY priResolution DESC LIMIT 5";
+    $query = "SELECT * FROM t_printer WHERE 1 ORDER BY t_printer.priResolution DESC LIMIT 5";
     $req = $this->queryPrepareExecute($query, null );
     $result = $this->formatData($req);
     return $result;
