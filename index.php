@@ -12,9 +12,16 @@
        <h1 class="display-1">printlookup - Comparateur d'imprimantes</h1>
    </div>
 </header>
-<main>
+
+
+</body>
+<?php
+include 'database.php';
+$database = new Database();
+$printers=$database->getAllPrinters();
+echo'<main>
     <h1>Les meilleures ventes : (5 meilleures ventes sur 3 ans)</h1><br>
-    <h1>10 meillleures imprimantes selon leurs vitesse d'impression :</h1><br>
+    <h1>10 meillleures imprimantes selon leurs vitesse d\'impression :</h1><br>
     <h1>Les 5 imprimantes à plus haute résolution</h1><br>
     <h1>Les trois imprimantes les plus chères du marché</h1><br>
     <h1>Les trois imprimantes les moins chères du marché</h1><br><br>
@@ -34,24 +41,25 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Epson</td>
-                <td>CD420</td>
-                <td>Laser</td>
-                <td>500LPM</td>
-                <td>1000 feuilles A4</td>
-                <td>2kg</td>
-                <td>455PPI</td>
-                <td>300*400*200</td>
-                <td>399.-</td>
-            </tr>
+            ';
+            foreach ($printers as $printer){
+                echo ' <tr>
+                <td>'.$printer['priBrand'].'</td>
+                <td>'.$printer['priModel'].'</td>
+                <td>'.$printer['priTechnology'].'</td>
+                <td>'.$printer['priSpeed'].' PPM</td>
+                <td>'.$printer['priCapacity'].' feuilles</td>
+                <td>'.$printer['priWeight'].'KG</td>
+                <td>'.$printer['priResolution'].'PPI</td>
+                <td>'.$printer['priHeight'].' x '.$printer['priWidth'].' x '.$printer['priDepth'].'</td>
+                <td>'.$printer['priPrice'].'chf</td>
+            </tr>';}'
+           
         </tbody>
     </table>
-</main>
-</body>
-<?php
-
+</main>';
 ?>
+
 </body>
 
 
