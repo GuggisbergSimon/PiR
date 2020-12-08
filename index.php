@@ -19,12 +19,20 @@
 include 'database.php';
 $database = new Database();
 $printers=$database->getAllPrinters();
+$bestresolution=$database->getBestResolution();
+$bestSpeed=$database->getBestSpeeds();
+$expensive=$database->getMostExpensive();
+$cheap=$database->getCheapest();
 echo'<main>
     <h1>Les meilleures ventes : (5 meilleures ventes sur 3 ans)</h1><br>
     <h1>10 meillleures imprimantes selon leurs vitesse d\'impression :</h1><br>
+    '; foreach($bestSpeed as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<em> Vitesse d\'impression : </em>'.$printer['priSpeed'].'<br>';} echo'
     <h1>Les 5 imprimantes à plus haute résolution</h1><br>
+    '; foreach($bestresolution as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<br>';} echo'
     <h1>Les trois imprimantes les plus chères du marché</h1><br>
-    <h1>Les trois imprimantes les moins chères du marché</h1><br><br>
+    '; foreach($expensive as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<br>';} echo'
+    <h1>Les trois imprimantes les moins chères du marché</h1><br>
+     '; foreach($cheap as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<br>';} echo'<br>
     <h1>Tableau des imprimantes :</h1><br>
     <table class="table table-striped">
         <thead>
