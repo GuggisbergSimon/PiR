@@ -8,13 +8,11 @@
 
 <body>
 <header>
-   <div class="jumbotron jumbotron-fluid">
-       <h1 class="display-1">printlookup - Comparateur d'imprimantes</h1>
-   </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100 m-0 mb-4">
+    <a class="navbar-brand" href="index.php">Printlookup - Comparateur d'imprimantes</a>
+    </nav>
 </header>
 
-
-</body>
 <?php
 include 'database.php';
 $database = new Database();
@@ -24,17 +22,25 @@ $bestSpeed=$database->getBestSpeeds();
 $expensive=$database->getMostExpensive();
 $cheap=$database->getCheapest();
 echo'<main>
-    <h1>Les meilleures ventes : (5 meilleures ventes sur 3 ans)</h1><br>
-    <h1>10 meillleures imprimantes selon leurs vitesse d\'impression :</h1><br>
+    <h4 class="mb-3 ml-5" onclick="toogleHideShow">Les meilleures ventes : (5 meilleures ventes sur 3 ans)</h4>
+    <h4 class="mb-3 ml-5" onclick="toogleHideShow"><button onclick="toogleHideShow()">10 meillleures imprimantes selon leurs vitesse d\'impression :</button></h4>
+    <div class="mb-4 ml-5" id="toggle" >
     '; foreach($bestSpeed as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<em> Vitesse d\'impression : </em>'.$printer['priSpeed'].'<br>';} echo'
-    <h1>Les 5 imprimantes à plus haute résolution</h1><br>
+    </div>
+    <h4 class="mb-3 ml-5"><button onclick="toogleHideShow()">Les 5 imprimantes à plus haute résolution</button></h4>
+    <div class="mb-4 ml-5" id="toggle">
     '; foreach($bestresolution as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<br>';} echo'
-    <h1>Les trois imprimantes les plus chères du marché</h1><br>
+    </div>
+    <h4 class="mb-3 ml-5">Les trois imprimantes les plus chères du marché</h4>
+    <div class="mb-4 ml-5">
     '; foreach($expensive as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<br>';} echo'
-    <h1>Les trois imprimantes les moins chères du marché</h1><br>
-     '; foreach($cheap as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<br>';} echo'<br>
-    <h1>Tableau des imprimantes :</h1><br>
-    <table class="table table-striped">
+    </div>
+    <h4 class="mb-3 ml-5">Les trois imprimantes les moins chères du marché</h4>
+    <div class="mb-5 ml-5">
+     '; foreach($cheap as $printer){echo $printer['priBrand'].' '.$printer['priModel'] .'<br>';} echo'
+    </div>
+    <h4 class="mb-3 ml-5">Tableau des imprimantes :</h4>
+    <table class="table table-striped m-auto" style="width:95%;">
         <thead>
         <tr>
             <th scope="col">Marque</th>
@@ -67,8 +73,18 @@ echo'<main>
     </table>
 </main>';
 ?>
-
 </body>
 
 
 </html>
+
+<script>
+    function toogleHideShow(){
+        var x = document.getElementById("toggle");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    </script>
