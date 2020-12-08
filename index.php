@@ -57,7 +57,7 @@ echo'<main>
         data-toggle="table"
         data-toolbar=".toolbar"
         data-sortable="true"
-        data-height="1200"
+        
         >
         <thead>
         <tr>
