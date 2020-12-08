@@ -4,7 +4,6 @@
 -- * DB-MAIN version: 11.0.1              
 -- * Generator date: Dec  4 2018              
 -- * Generation date: Tue Dec  1 15:46:47 2020 
--- * LUN file: F:\tools\uwamp\www\PiR\db\PiR.lun 
 -- * Schema: PiR/1-1 
 -- ********************************************* 
 
