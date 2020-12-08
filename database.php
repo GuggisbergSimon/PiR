@@ -116,12 +116,39 @@ public function getOnePrinter($id){
     $req = $this->queryPrepareExecute($query, null );
     $result = $this->formatData($req);
     return $result;
-    // TODO: récupère la liste des informations pour 1 enseignant
 
-    // TODO: avoir la requête sql pour 1 enseignant (utilisation de l'id)
-    // TODO: appeler la méthode pour executer la requête
-    // TODO: appeler la méthode pour avoir le résultat sous forme de tableau
-    // TODO: retour l'enseignant
+}
+
+public function getBestSales(){
+
+}
+
+public function getBestSpeeds(){
+    $query = "SELECT * FROM t_printer GROUP BY priSpeed DESC LIMIT 10";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
+}
+
+public function getBestResolution(){
+    $query = "SELECT * FROM t_printer GROUP BY priResolution DESC LIMIT 5";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
+}
+
+public function getMostExpensive(){
+    $query = "SELECT * FROM t_printer GROUP BY priPrice DESC LIMIT 3";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
+}
+
+public function getCheapest(){
+    $query = "SELECT * FROM t_printer GROUP BY priPrice ASC LIMIT 3";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
 }
 
 // + tous les autres méthodes dont vous aurez besoin pour la suite (insertTeacher ... etc)
