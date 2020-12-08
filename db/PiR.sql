@@ -34,14 +34,14 @@ create table t_printer (
      priBrand varchar(50) not null,
      priModel varchar(100) not null,
      priTechnology char(1) not null,
-     priSpeed int not null,
-     priCapacity int not null,
+     priSpeed tinyint not null,
+     priCapacity smallint not null,
      priWeight float(1) not null,
-     priResolution int not null,
-     priHeight int not null,
-     priWidth int not null,
-     priDepth int not null,
-     priPrice int not null,
+     priResolution smallint not null,
+     priHeight smallint not null,
+     priWidth smallint not null,
+     priDepth smallint not null,
+     priPrice smallint not null,
      constraint ID_t_printer_ID primary key (idPrinter));
 
 
