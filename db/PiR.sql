@@ -41,9 +41,9 @@ create table t_printer (
      priCapacity smallint not null,
      priWeight float(1) not null,
      priResolution smallint not null,
-     priHeight smallint not null,
-     priWidth smallint not null,
-     priDepth smallint not null,
+     priHeight float(1) not null,
+     priWidth float(1) not null,
+     priDepth float(1) not null,
      priPrice smallint not null,
      constraint ID_t_printer_ID primary key (idPrinter));
 
