@@ -19,7 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `pir`
 --
-
+DROP DATABASE IF EXISTS pir;
+CREATE DATABASE pir;
+USE pir;
 -- --------------------------------------------------------
 
 --
