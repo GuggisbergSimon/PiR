@@ -116,12 +116,27 @@ public function getOnePrinter($id){
     $req = $this->queryPrepareExecute($query, null );
     $result = $this->formatData($req);
     return $result;
-    // TODO: récupère la liste des informations pour 1 enseignant
 
-    // TODO: avoir la requête sql pour 1 enseignant (utilisation de l'id)
-    // TODO: appeler la méthode pour executer la requête
-    // TODO: appeler la méthode pour avoir le résultat sous forme de tableau
-    // TODO: retour l'enseignant
+}
+
+public function getBestSales(){
+
+}
+
+public function getBestSpeeds(){
+
+}
+
+public function getBestResolution(){
+
+}
+
+public function getMostExpensive(){
+
+}
+
+public function getCheapest(){
+
 }
 
 // + tous les autres méthodes dont vous aurez besoin pour la suite (insertTeacher ... etc)
