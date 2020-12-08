@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+-- *********************************************
+-- * SQL MySQL generation                      
+-- *--------------------------------------------
+-- * DB-MAIN version: 11.0.1              
+-- * Generator date: Dec  4 2018              
+-- * Generation date: Tue Dec  1 15:46:47 2020 
+-- * Schema: PiR/1-1 
+-- ********************************************* 
+
+>>>>>>> main
 
 -- Database Section
 -- ________________ 
@@ -25,14 +37,14 @@ create table t_printer (
      priBrand varchar(50) not null,
      priModel varchar(100) not null,
      priTechnology char(1) not null,
-     priSpeed int not null,
-     priCapacity int not null,
+     priSpeed tinyint not null,
+     priCapacity smallint not null,
      priWeight float(1) not null,
-     priResolution int not null,
-     priHeight int not null,
-     priWidth int not null,
-     priDepth int not null,
-     priPrice int not null,
+     priResolution smallint not null,
+     priHeight smallint not null,
+     priWidth smallint not null,
+     priDepth smallint not null,
+     priPrice smallint not null,
      constraint ID_t_printer_ID primary key (idPrinter));
 
 
