@@ -124,19 +124,31 @@ public function getBestSales(){
 }
 
 public function getBestSpeeds(){
-
+    $query = "SELECT * FROM t_printer GROUP BY priSpeed DESC LIMIT 10";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
 }
 
 public function getBestResolution(){
-
+    $query = "SELECT * FROM t_printer GROUP BY priResolution DESC LIMIT 5";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
 }
 
 public function getMostExpensive(){
-
+    $query = "SELECT * FROM t_printer GROUP BY priPrice DESC LIMIT 3";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
 }
 
 public function getCheapest(){
-
+    $query = "SELECT * FROM t_printer GROUP BY priPrice ASC LIMIT 3";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
 }
 
 // + tous les autres méthodes dont vous aurez besoin pour la suite (insertTeacher ... etc)
