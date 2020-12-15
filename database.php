@@ -119,6 +119,8 @@ public function getOnePrinter($id){
 
 }
 
+//Requêtes de la page d'accueil
+
 public function getBestSales(){
 
 }
@@ -151,7 +153,7 @@ public function getCheapest(){
     return $result;
 }
 
-// + tous les autres méthodes dont vous aurez besoin pour la suite (insertTeacher ... etc)
+//Requêtes de tri dans le tableau
 }
 
 
