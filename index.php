@@ -5,8 +5,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="https://unpkg.com/bootstrap-table@1.18.1/dist/bootstrap-table.min.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -17,9 +15,6 @@
 </header>
 
 <div class="toolbar">
-    <label>
-        <input type="checkbox" id="sortable" checked/> sortable
-    </label>
 </div>
 
 <?php
@@ -35,10 +30,10 @@ $cheap = $database->getCheapest();
 echo '
 <main>
     <div class="container">
-        <div class="card border mb-3">
+        <div class="card border-success mb-3">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="btn btn-success btn-smbtn-success" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     Les meilleures ventes : (5 meilleures ventes sur 3 ans)
                 </button>
                 </h2>
@@ -53,10 +48,10 @@ echo '
     </div>
     
     <div class="container">
-        <div class="card border mb-3">
+        <div class="card border-success mb-3">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="btn btn-success btn-smbtn-success" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
                     10 meillleures imprimantes selon leurs vitesse d\'impression :
                 </button>
                 </h2>
@@ -74,10 +69,10 @@ echo '
     </div>
     
     <div class="container">
-        <div class="card border mb-3">
+        <div class="card border-success mb-3">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="btn btn-success btn-smbtn-success" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseOne">
                     Les 5 imprimantes à plus haute résolution :
                 </button>
                 </h2>
@@ -95,10 +90,10 @@ echo '
     </div>
     
     <div class="container">
-        <div class="card border mb-3">
+        <div class="card border-success mb-3">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="btn btn-success btn-smbtn-success" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
                     Les trois imprimantes les plus chères du marché :
                 </button>
                 </h2>
@@ -116,10 +111,10 @@ echo '
     </div>
     
     <div class="container">
-        <div class="card border mb-3">
+        <div class="card border-success mb-3">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="btn btn-success btn-smbtn-success" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseOne">
                     Les trois imprimantes les moins chères du marché :
                 </button>
                 </h2>
@@ -138,9 +133,9 @@ echo '
     ';
 echo '<br>
     <h1>Tableau des imprimantes :</h1><br>
-  
-   
-    
+   <label>
+        <input type="checkbox" id="sortable" checked/> sortable
+    </label>
     <table class="table table-striped m-auto" style="width:95%;" id="table"
         data-toggle="table"
         data-toolbar=".toolbar"
