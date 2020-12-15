@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 -- *********************************************
 -- * SQL MySQL generation                      
 -- *--------------------------------------------
@@ -8,9 +5,7 @@
 -- * Generator date: Dec  4 2018              
 -- * Generation date: Tue Dec  1 15:46:47 2020 
 -- * Schema: PiR/1-1 
--- ********************************************* 
-
->>>>>>> main
+-- *********************************************
 
 -- Database Section
 -- ________________ 
@@ -76,7 +71,6 @@ create unique index ID_t_client_IND
 create unique index ID_t_printer_IND
      on t_printer (idPrinter);
 
-=======
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1
 -- http://www.phpmyadmin.net
@@ -235,4 +229,3 @@ ALTER TABLE `buy`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
->>>>>>> main
