@@ -74,24 +74,13 @@ foreach ($cheap as $printer) {
 }
 echo '<br>
     <h1>Tableau des imprimantes :</h1><br>
-    <table
-        id="table"
+  
+   
+    
+    <table class="table table-striped m-auto" style="width:95%;" id="table"
         data-toggle="table"
         data-toolbar=".toolbar"
-        data-sortable="true"
-        
-        >
-    </div>
-    <h4 class="mb-3 ml-5">Les trois imprimantes les moins chères du marché</h4>
-    <div class="mb-5 ml-5">
-     ';
-foreach ($cheap as $printer) {
-    echo $printer['priBrand'] . ' ' . $printer['priModel'] . '<br>';
-}
-echo '
-    </div>
-    <h4 class="mb-3 ml-5">Tableau des imprimantes :</h4>
-    <table class="table table-striped m-auto" style="width:95%;">
+        data-sortable="true">
         <thead>
         <tr>
             <th data-field="brand" data-sortable="true" scope="col">Marque</th>
