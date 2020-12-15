@@ -4,21 +4,9 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
     <link href="https://unpkg.com/bootstrap-table@1.18.1/dist/bootstrap-table.min.css" rel="stylesheet">
 
-    <script src="https://unpkg.com/bootstrap-table@1.18.1/dist/bootstrap-table.min.js"></script>
+
 </head>
 
 <body>
@@ -42,54 +30,114 @@ $bestresolution = $database->getBestResolution();
 $bestSpeed = $database->getBestSpeeds();
 $expensive = $database->getMostExpensive();
 $cheap = $database->getCheapest();
-echo '<main>
-    <h4 class="mb-3 ml-5" onclick="toogleHideShow">Les meilleures ventes : (5 meilleures ventes sur 3 ans)</h4>
-    <h4 class="mb-3 ml-5" onclick="toogleHideShow"><button onclick="toogleHideShow()">10 meillleures imprimantes selon leurs vitesse d\'impression :</button></h4>
-    <div class="mb-4 ml-5" id="toggle" >
-    ';
+
+
+echo '
+<main>
+    <div class="container">
+        <div class="card border mb-3">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Les meilleures ventes : (5 meilleures ventes sur 3 ans)
+                </button>
+                </h2>
+            </div>
+    
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                <div class="card-body">
+                INSERT MEILLEURES VENTES 5 MEILLEURES SUR 3 ANS ICI
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="card border mb-3">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+                    10 meillleures imprimantes selon leurs vitesse d\'impression :
+                </button>
+                </h2>
+            </div>
+    
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
+                <div class="card-body">';
 foreach ($bestSpeed as $printer) {
     echo $printer['priBrand'] . ' ' . $printer['priModel'] . '<em> Vitesse d\'impression : </em>' . $printer['priSpeed'] . '<br>';
 }
 echo '
+                </div>
+            </div>
+        </div>
     </div>
-    <h4 class="mb-3 ml-5"><button onclick="toogleHideShow()">Les 5 imprimantes à plus haute résolution</button></h4>
-    <div class="mb-4 ml-5" id="toggle">
-    ';
+    
+    <div class="container">
+        <div class="card border mb-3">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseOne">
+                    Les 5 imprimantes à plus haute résolution :
+                </button>
+                </h2>
+            </div>
+    
+            <div id="collapseThree" class="collapse" aria-labelledby="headingOne">
+                <div class="card-body">';
 foreach ($bestresolution as $printer) {
     echo $printer['priBrand'] . ' ' . $printer['priModel'] . '<br>';
 }
 echo '
+                </div>
+            </div>
+        </div>
     </div>
-    <h4 class="mb-3 ml-5">Les trois imprimantes les plus chères du marché</h4>
-    <div class="mb-4 ml-5">
-    ';
+    
+    <div class="container">
+        <div class="card border mb-3">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
+                    Les trois imprimantes les plus chères du marché :
+                </button>
+                </h2>
+            </div>
+    
+            <div id="collapseFour" class="collapse" aria-labelledby="headingOne">
+                <div class="card-body">';
 foreach ($expensive as $printer) {
     echo $printer['priBrand'] . ' ' . $printer['priModel'] . '<br>';
 }
 echo '
-    <h1>Les trois imprimantes les moins chères du marché</h1><br>
-     ';
-foreach ($cheap as $printer) {
-    echo $printer['priBrand'] . ' ' . $printer['priModel'] . '<br>';
-}
-echo '<br>
-    <h1>Tableau des imprimantes :</h1><br>
-    <table
-        id="table"
-        data-toggle="table"
-        data-toolbar=".toolbar"
-        data-sortable="true"
-        
-        >
+                </div>
+            </div>
+        </div>
     </div>
-    <h4 class="mb-3 ml-5">Les trois imprimantes les moins chères du marché</h4>
-    <div class="mb-5 ml-5">
-     ';
+    
+    <div class="container">
+        <div class="card border mb-3">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
+                    Les trois imprimantes les moins chères du marché :
+                </button>
+                </h2>
+            </div>
+    
+            <div id="collapseFour" class="collapse" aria-labelledby="headingOne">
+                <div class="card-body">';
 foreach ($cheap as $printer) {
     echo $printer['priBrand'] . ' ' . $printer['priModel'] . '<br>';
 }
 echo '
+                </div>
+            </div>
+        </div>
     </div>
+    ';
+
+echo '
     <h4 class="mb-3 ml-5">Tableau des imprimantes :</h4>
     <table class="table table-striped m-auto" style="width:95%;">
         <thead>
@@ -124,30 +172,37 @@ echo '
            
         </tbody>
     </table>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.1/dist/bootstrap-table.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
     <script>
-    $(function() {
-        $(\'#sortable\').change(function () {
-            $(\'#table\').bootstrapTable(\'refreshOptions\', {
-                sortable: $(\'#sortable\').prop(\'checked\')
+        $(function() {
+            $(\'#sortable\').change(function () {
+                $(\'#table\').bootstrapTable(\'refreshOptions\', {
+                    sortable: $(\'#sortable\').prop(\'checked\')
+                })
             })
         })
-    })
-</script>
+    </script>
 
 </main>';
 ?>
+<footer>
+
+</footer>
 </body>
 
-
 </html>
-
-<script>
-    function toogleHideShow() {
-        var x = document.getElementById("toggle");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-</script>
