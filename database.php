@@ -118,11 +118,15 @@ public function getOnePrinter($id){
     return $result;
 
 }
-
-//Requêtes de la page d'accueil
-
-public function getBestSales(){
-
+/**
+ * Récupère les meilleures ventes d'imprimantes (n'affiche que le nombre d'imprimantes désiré)
+ * @param [int] $nb
+ */
+public function getBestSales($nb){
+    $query = "SELECT t_printer.priBrand, t_printer.priModel, COUNT(buy.idPrinter) AS 'ventes' FROM buy INNER JOIN t_printer ON buy.idPrinter = t_printer.idPrinter GROUP BY buy.idPrinter ORDER BY COUNT(buy.idPrinter) DESC LIMIT $nb";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
 }
 
 public function getBestSpeeds(){
@@ -153,8 +157,26 @@ public function getCheapest(){
     return $result;
 }
 
-//Requêtes de tri dans le tableau
+/**
+ * Compte le nombre de fois qu'une imprimante a été achetée
+ * * @param [int] $id
+ */
+public function getOnePrinterSales($id){
+    $query = "SELECT COUNT(idClient) FROM buy WHERE idPrinter = $id";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
 }
 
+/**
+ * Récupère les Imprimantes vendues (combien et lesquels)
+ */
+public function getAllPrintersSales(){
+    $query = "SELECT t_printer.priBrand, t_printer.priModel, COUNT(buy.idPrinter) FROM buy INNER JOIN t_printer ON buy.idPrinter = t_printer.idPrinter GROUP BY buy.idPrinter";
+    $req = $this->queryPrepareExecute($query, null );
+    $result = $this->formatData($req);
+    return $result;
+}
 
+}
 ?>
