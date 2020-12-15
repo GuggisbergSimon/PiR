@@ -1,82 +1,9 @@
--- *********************************************
--- * SQL MySQL generation                      
--- *--------------------------------------------
--- * DB-MAIN version: 11.0.1              
--- * Generator date: Dec  4 2018              
--- * Generation date: Tue Dec  1 15:46:47 2020 
--- * Schema: PiR/1-1 
--- *********************************************
-
--- Database Section
--- ________________ 
-
-create database PiR;
-use PiR;
-
-
--- Tables Section
--- _____________ 
-
-create table buy (
-     idClient int not null,
-     idPrinter int not null,
-     constraint ID_buy_ID primary key (idClient, idPrinter));
-
-create table t_client (
-     idClient int not null auto_increment,
-     cliFirstName varchar(50) not null,
-     cliLastName varchar(50) not null,
-     constraint ID_t_client_ID primary key (idClient));
-
-create table t_printer (
-     idPrinter int not null auto_increment,
-     priBrand varchar(50) not null,
-     priModel varchar(100) not null,
-     priTechnology char(1) not null,
-     priSpeed tinyint not null,
-     priCapacity smallint not null,
-     priWeight float(1) not null,
-     priResolution smallint not null,
-     priHeight float(1) not null,
-     priWidth float(1) not null,
-     priDepth float(1) not null,
-     priPrice smallint not null,
-     constraint ID_t_printer_ID primary key (idPrinter));
-
-
--- Constraints Section
--- ___________________ 
-
-alter table buy add constraint FKbuy_t_p_FK
-     foreign key (idPrinter)
-     references t_printer (idPrinter);
-
-alter table buy add constraint FKbuy_t_c
-     foreign key (idClient)
-     references t_client (idClient);
-
-
--- Index Section
--- _____________ 
-
-create unique index ID_buy_IND
-     on buy (idClient, idPrinter);
-
-create index FKbuy_t_p_IND
-     on buy (idPrinter);
-
-create unique index ID_t_client_IND
-     on t_client (idClient);
-
-create unique index ID_t_printer_IND
-     on t_printer (idPrinter);
-
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 08 Décembre 2020 à 12:29
+-- Généré le :  Mar 15 Décembre 2020 à 13:39
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -92,9 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `pir`
 --
-DROP DATABASE IF EXISTS pir;
-CREATE DATABASE pir;
-USE pir;
+
 -- --------------------------------------------------------
 
 --
@@ -105,6 +30,28 @@ CREATE TABLE `buy` (
   `idClient` int(11) NOT NULL,
   `idPrinter` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `buy`
+--
+
+INSERT INTO `buy` (`idClient`, `idPrinter`) VALUES
+(10, 1),
+(1, 3),
+(6, 4),
+(5, 6),
+(2, 12),
+(3, 12),
+(4, 12),
+(3, 16),
+(2, 19),
+(4, 20),
+(9, 20),
+(2, 21),
+(4, 24),
+(8, 25),
+(9, 28),
+(3, 30);
 
 -- --------------------------------------------------------
 
@@ -117,6 +64,22 @@ CREATE TABLE `t_client` (
   `cliFirstName` varchar(50) NOT NULL,
   `cliLastName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `t_client`
+--
+
+INSERT INTO `t_client` (`idClient`, `cliFirstName`, `cliLastName`) VALUES
+(1, 'Jean-Michel', 'Dutoit'),
+(2, 'Aline', 'Dulong'),
+(3, 'Martin', 'Matin'),
+(4, 'Lucille', 'Orbha'),
+(5, 'Victore-Emmanuel', 'Tonhu'),
+(6, 'Elisa', 'Cressans'),
+(7, 'Antoine', 'Dorie'),
+(8, 'Elliote', 'Vuillominet'),
+(9, 'Laura', 'Bugnard'),
+(10, 'Sarah', 'Zimmerman');
 
 -- --------------------------------------------------------
 
@@ -209,12 +172,12 @@ ALTER TABLE `t_printer`
 -- AUTO_INCREMENT pour la table `t_client`
 --
 ALTER TABLE `t_client`
-  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `t_printer`
 --
 ALTER TABLE `t_printer`
-  MODIFY `idPrinter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idPrinter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- Contraintes pour les tables exportées
 --
