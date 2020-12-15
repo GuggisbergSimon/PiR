@@ -119,13 +119,13 @@ echo '
         <div class="card border mb-3">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
-                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
+                    <button class="btn btn btn-smbtn " data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseOne">
                     Les trois imprimantes les moins chères du marché :
                 </button>
                 </h2>
             </div>
     
-            <div id="collapseFour" class="collapse" aria-labelledby="headingOne">
+            <div id="collapseFive" class="collapse" aria-labelledby="headingOne">
                 <div class="card-body">';
 foreach ($cheap as $printer) {
     echo $printer['priBrand'] . ' ' . $printer['priModel'] . '<br>';
@@ -136,10 +136,15 @@ echo '
         </div>
     </div>
     ';
-
-echo '
-    <h4 class="mb-3 ml-5">Tableau des imprimantes :</h4>
-    <table class="table table-striped m-auto" style="width:95%;">
+echo '<br>
+    <h1>Tableau des imprimantes :</h1><br>
+  
+   
+    
+    <table class="table table-striped m-auto" style="width:95%;" id="table"
+        data-toggle="table"
+        data-toolbar=".toolbar"
+        data-sortable="true">
         <thead>
         <tr>
             <th data-field="brand" data-sortable="true" scope="col">Marque</th>
