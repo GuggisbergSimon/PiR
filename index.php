@@ -151,11 +151,13 @@ echo '<br>
             <th data-field="resolution" data-sortable="true" scope="col">Résolution</th>
             <th data-field="size" data-sortable="true" scope="col">Dimensions</th>
             <th data-field="price" data-sortable="true" scope="col">Prix</th>
+            <th data-field="buyby" data-sortable="true" scope="col">Acheté par</th>
         </tr>
         </thead>
         <tbody>
             ';
 foreach ($printers as $printer) {
+    $clients = $database->getClientsByPrinterSale($printer['idPrinter']);
     echo ' <tr>
                 <td>' . $printer['priBrand'] . '</td>
                 <td>' . $printer['priModel'] . '</td>
@@ -165,8 +167,15 @@ foreach ($printers as $printer) {
                 <td>' . $printer['priWeight'] . 'KG</td>
                 <td>' . $printer['priResolution'] . 'PPI</td>
                 <td>' . $printer['priHeight'] . ' x ' . $printer['priWidth'] . ' x ' . $printer['priDepth'] . '</td>
-                <td>' . $printer['priPrice'] . 'chf</td>
-            </tr>';
+                <td>' . $printer['priPrice'] . 'chf</td>';
+                if(!empty($clients)){
+                    echo '<td><details><summary> Client </summary>';
+                    foreach($clients as $client ){
+                    echo '<p>' . $client['cliFirstName'] . '</p>';
+                    }
+                    echo '</details></td>';
+                }
+            echo '</tr>';
 }
 echo '
            

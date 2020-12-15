@@ -190,6 +190,18 @@ class Database
         return $result;
     }
 
+      /**
+     * Récupère les Imprimantes vendues (combien et lesquels)
+     */
+    public function getClientsbyPrinterSale($id)
+    {
+        $query = "SELECT t_client.cliFirstName,t_client.cliLastName FROM t_client INNER JOIN buy ON buy.idClient = t_client.idClient WHERE buy.idPrinter = $id";
+        $req = $this->queryPrepareExecute($query, null);
+        $result = $this->formatData($req);
+        return $result;
+    }
+
+
 }
 
 ?>
